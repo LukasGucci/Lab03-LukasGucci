@@ -214,7 +214,7 @@ bool IntBST::remove(int value){
     if (nodeToRemove == nullptr) return false;
     if(nodeToRemove->left == nullptr && nodeToRemove->right == nullptr){
         if(nodeToRemove == root){
-            root == nullptr;
+            root = nullptr;
         }
         else{
             if(nodeToRemove == nodeToRemove->parent->right){
