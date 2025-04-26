@@ -228,7 +228,7 @@ bool IntBST::remove(int value){
     }
     else if(nodeToRemove->left == nullptr || nodeToRemove->right == nullptr){
         Node* child = (nodeToRemove->left != nullptr) ? nodeToRemove->left : nodeToRemove->right;
-        if(nodeToRemove = root){
+        if(nodeToRemove == root){
             root = child;
             child->parent = nullptr;
         }
