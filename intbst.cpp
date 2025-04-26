@@ -227,16 +227,20 @@ bool IntBST::remove(int value){
         delete nodeToRemove;
     }
     else if(nodeToRemove->left == nullptr || nodeToRemove->right == nullptr){
-        Node* child = new Node;
-        if(nodeToRemove->left != nullptr){
-            child = nodeToRemove->left;
-            nodeToRemove->parent->left = child;
+        Node* child = (nodeToRemove->left != nullptr) ? nodeToRemove->left : nodeToRemove->right;
+        if(nodeToRemove = root){
+            root = child;
+            child->parent = nullptr;
         }
         else{
-            child = nodeToRemove->right;
-            nodeToRemove->parent->right = child;
+            if(nodeToRemove == nodeToRemove->parent->left){
+                nodeToRemove->parent->left = child;
+            }
+            else{
+                nodeToRemove->parent->right = child;
+            }
+            child->parent = nodeToRemove->parent;
         }
-        child->parent = nodeToRemove->parent;
         delete nodeToRemove;
         
     }
